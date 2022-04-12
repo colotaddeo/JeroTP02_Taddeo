@@ -8,10 +8,13 @@ public class ValidarContrasenia : MonoBehaviour
     string contraseniaCorrecta;
     string contraseniaUsuario;
     public Text ingresoUsuario;
-    
+    public Text textoMsj;
+    public GameObject Panel_msj;
+
     void Start()
     {
         contraseniaCorrecta = "12345";
+        Panel_msj.SetActive(false);
 
     }
 
@@ -23,15 +26,18 @@ public class ValidarContrasenia : MonoBehaviour
 
     public void validarContrasenia()
     {
-        Debug.Log("Test");
         contraseniaUsuario = ingresoUsuario.text;
         if (contraseniaUsuario == contraseniaCorrecta)
         {
             Debug.Log("Bienvenido");
+            Panel_msj.SetActive(true);
+            textoMsj.text = "Bienvenido";
         }
         else
         {
             Debug.Log("Incorrecta");
+            Panel_msj.SetActive(true);
+            textoMsj.text = "Contraseña Incorrecta";
         }
     }
 }
